@@ -1,16 +1,4 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-# from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
+from PEM_App import app
 
-app = FastAPI()
-
-# app.mount("/static", StaticFiles(directory="static"), name="static")
-
-
-templates = Jinja2Templates(directory="templates")
-
-
-@app.get("/")
-async def hello_world(request: Request):
-    return templates.TemplateResponse("hello_world.html", {"request": request})
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8000)
